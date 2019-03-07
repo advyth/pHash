@@ -28,7 +28,7 @@ def pHash_1(c_array):
 	for i in range(0, len(c_array)):
 		h = h + math.log(c_array[i])
 	h1 = int((h + math.log(len(c_array))/len(c_array)+1) * 1000000000000000)
-	pHash_2(h1)
+	return h1
 """
 	
 	pHash level 2:
@@ -52,6 +52,6 @@ def pHash_2(hash_1):
 			h2 += math.log(int(h1_split[i]))
 	print("Hash value is " + str(int(h2 * 100000000000000)))
 	
-pHash_1(num_array)
+pHash_2(pHash_1(num_array))
 	
 
