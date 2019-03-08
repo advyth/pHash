@@ -1,17 +1,5 @@
 import math
 
-n = input("Enter string to hash\n") #Accept string input.
-
-num_array = [] #Initialize array of size N.
-
-
-for i in range(0, len(n)): #Obtain ASCII value of each character from the string and append it to the array.
-	if n[i] == " ":	#If space is encountered, append 129 which is a default value.
-		num_array.append(129)
-	else:
-		num_array.append(ord(n[i])) #if normal ASCII character, append the value itself.
-
-
 """
 
 	pHash level 1:
@@ -50,8 +38,17 @@ def pHash_2(hash_1):
 			h2 += 0
 		else:
 			h2 += math.log(int(h1_split[i]))
-	print("Hash value is " + str(int(h2 * 100000000000000)))
-	
-pHash_2(pHash_1(num_array))
+	return str(int(h2 * 100000000000000))
+
+def hash(n):
+	num_array = [] #Initialize array of size x .
+	for i in range(0, len(n)): #Obtain ASCII value of each character from the string and append it to the array.
+		if n[i] == " ":	#If space is encountered, append 129 which is a default value.
+			num_array.append(129)
+		else:
+			num_array.append(ord(n[i])) #if normal ASCII character, append the value itself.
+	return pHash_2(pHash_1(num_array))
+
+
 	
 
